@@ -1,8 +1,7 @@
-//la home usa lo userService per accedere alle risorse pubbliche del back end
-
 import { Component, OnInit } from '@angular/core';
 import {UserService} from "../_services/user.service";
 
+//la home usa lo userService per accedere alle risorse pubbliche del back end
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

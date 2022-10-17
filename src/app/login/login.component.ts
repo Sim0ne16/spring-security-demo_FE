@@ -8,7 +8,7 @@ import {StorageService} from "../_services/storage.service";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
+//form per il login
   form: any = {
     username: null,
     password: null
@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
+    //check se è loggato
     if (this.storageService.isLoggedIn()){
       this.isLoggedIn = true;
       this.roles = this.storageService.getUser().roles;
@@ -34,9 +35,10 @@ export class LoginComponent implements OnInit {
 
     const { username, password } = this.form;
 
+    //invia tramite authService la login
     this.authService.login(username, password).subscribe({
       next: data => {
-        this.storageService.saveUser(data);
+        this.storageService.saveUser(data); //salva lo user in sessione
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;

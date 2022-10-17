@@ -23,7 +23,6 @@ export class AppComponent {
 
 
   ngOnInit() : void {
-
     //check per vedere se sei loggato
     this.isLoggedIn = this.storageService.isLoggedIn();
     //se lo sei allora prende user role e setta il valore in base al ruolo a riga 34-35
@@ -31,6 +30,7 @@ export class AppComponent {
       const user = this.storageService.getUser();
       this.roles = user.roles;
 
+      //si setta i booleani in base ai ruoli per mostrare le sezioni dei ruoli
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
       this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
 

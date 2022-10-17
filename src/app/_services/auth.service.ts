@@ -7,6 +7,8 @@ const httpOptions = {
   headers : new HttpHeaders({'Content-Type': 'application/json'})
 }
 
+//authservice offre le funzioni di login, registration e logout sotto forma
+//di chiamate POST al back-end
 @Injectable({
   providedIn: 'root'
 })
@@ -33,6 +35,7 @@ export class AuthService {
       httpOptions
     );
   }
+
   logout() : Observable<any>{
     return this.http.post(
       AUTH_API + 'signout',{},
